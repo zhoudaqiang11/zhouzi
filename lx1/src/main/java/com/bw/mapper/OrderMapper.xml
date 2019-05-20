@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 命名空间 早期版本是可选的 现在是必须的 可以是随意的名称 但是最好是全限定名称 -->
+<mapper namespace="com.bw.mapper.UserMapperDao">
+	<select id="getlistuser" resultType="map" parameterType="map">
+		SELECT s.*, m.rnum,m.rname FROM 0429_stu s left JOIN 0429_r_s r on r.sid
+		=s.sid
+		left JOIN 0429_room m on m.rid =r.rid
+		where end='至今'
+	</select>
+</mapper>
