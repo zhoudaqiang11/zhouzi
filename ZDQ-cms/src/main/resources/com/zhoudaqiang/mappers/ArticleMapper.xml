@@ -78,5 +78,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
-	
+	<select id="getnumbytypeid" parameterType="Integer" resultType="Integer">
+	 select count(*) from t_article where typeid=#{typeid}
+	</select>
+	<delete id="delete" parameterType="integer">
+	  delete from t_article where id=#{id};
+	</delete>
 </mapper> 

@@ -50,4 +50,12 @@ public class StringUtil {
 		}
 		return resultList;
 	}
+
+	public static String formatLike(String str) {
+		if(isNotEmpty(str)){
+			return "%"+str+"%";
+		}else{
+			return null;
+		}
+	}
 }

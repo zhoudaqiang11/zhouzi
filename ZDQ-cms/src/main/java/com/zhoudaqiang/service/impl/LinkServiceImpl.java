@@ -26,4 +26,30 @@ public class LinkServiceImpl implements LinkService{
 		return linkDao.list(map);
 	}
 
+	@Override
+	public Long gettoal(Map<String, Object> map) {
+		
+		return linkDao.gettoal(map);
+	}
+
+	@Override
+	public void delete(int parseInt) {
+		linkDao.delete(parseInt);
+		
+	}
+
+	@Override
+	public int add(Link link) {
+		
+		return linkDao.add(link);
+	}
+
+	@Override
+	public int update(Link link) {
+		
+		return linkDao.update(link);
+	}
+
+
+
 }

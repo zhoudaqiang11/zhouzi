@@ -25,4 +25,13 @@ public interface ArcTypeService {
 	 * @return
 	 */
 	public ArcType findById(Integer id);
+
+	public Long getTotal(Map<String, Object> map);
+
+	public void delete(int parseInt);
+
+	public int add(ArcType arcType);
+
+	public int update(ArcType arcType);
+
 }

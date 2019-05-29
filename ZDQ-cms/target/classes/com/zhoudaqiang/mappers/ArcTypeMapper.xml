@@ -5,20 +5,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.zhoudaqiang.dao.ArcTypeDao">
 
 	<resultMap type="ArcType" id="ArcTypeResult">
-		<result property="id" column="id"/>
-		<result property="typeName" column="typeName"/>
-		<result property="sortNo" column="sortNo"/>
-		<result property="keywords" column="keywords"/>
-		<result property="description" column="description"/>
+		<result property="id" column="id" />
+		<result property="typeName" column="typeName" />
+		<result property="sortNo" column="sortNo" />
+		<result property="keywords" column="keywords" />
+		<result property="description" column="description" />
 	</resultMap>
-		
+
 	<select id="list" parameterType="Map" resultMap="ArcTypeResult">
-		select * from t_arcType
+		select * from
+		t_arcType
 		order by sortNo asc
 	</select>
-	
+
 	<select id="findById" parameterType="Integer" resultMap="ArcTypeResult">
-		select * from t_arcType where id=#{id}
+		select *
+		from t_arcType where id=#{id}
 	</select>
-	
+
+	<select id="getTotal" parameterType="map" resultType="long">
+		SELECT count(*) FROM t_arctype
+	</select>
+	<delete id="delete" parameterType="integer">
+		delete from t_arctype where id=#{id}
+	</delete>
+	<insert id="add" parameterType="ArcType">
+		insert into t_arcType
+		values(null,#{typeName},#{sortNo},#{keywords},#{description})
+	</insert>
+	<update id="update" parameterType="ArcType">
+		update t_arcType
+		<set>
+			<if test="typeName!=null and typeName!=''">
+				typeName=#{typeName},
+			</if>
+			<if test="sortNo!=null and sortNo!=''">
+				sortNo=#{sortNo},
+			</if>
+			<if test="keywords!=null and keywords!=''">
+				keywords=#{keywords},
+			</if>
+			<if test="description!=null and description!=''">
+				description=#{description},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
 </mapper> 

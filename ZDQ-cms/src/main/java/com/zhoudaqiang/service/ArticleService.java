@@ -78,4 +78,9 @@ public interface ArticleService {
 	 * @return
 	 */
 	public Long getTotal(Map<String,Object> map);
+
+	public Integer getnumbytypeid(int parseInt);
+
+	public void delete(int parseInt);
+
 }

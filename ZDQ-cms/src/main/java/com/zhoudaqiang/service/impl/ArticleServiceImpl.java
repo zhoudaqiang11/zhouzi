@@ -62,4 +62,17 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleDao.getTotal(map);
 	}
 
+	@Override
+	public Integer getnumbytypeid(int parseInt) {
+		
+		return articleDao.getnumbytypeid(parseInt);
+	}
+
+	@Override
+	public void delete(int parseInt) {
+		articleDao.delete(parseInt);
+		
+	}
+
+
 }

@@ -15,5 +15,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from t_link
 		order by sortNo asc
 	</select>
-	
+	<select id="gettoal" parameterType="Map" resultType="Long">select count(*) from t_link </select>
+	<delete id="delete" parameterType="Integer">delete from t_link where id=#{id}</delete>
+	<insert id="add" parameterType="link">insert into t_link values(null,#{name},#{url},#{sortNo})</insert>
+	<update id="update" parameterType="link">
+	  update t_link set name=#{name},url=#{url},sortNo=#{sortNo} where id=#{id}
+	</update>
 </mapper> 
